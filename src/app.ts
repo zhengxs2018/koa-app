@@ -16,9 +16,21 @@ export class Blog implements App {
 
   constructor(@inject(UserService) private user: UserService) {}
 
-  @Get('/')
+  @Get('home', '/')
   index(ctx: Context) {
     ctx.body = 'hello,world'
+  }
+
+  @Get('/urls')
+  urls(ctx: Context) {
+    ctx.body = {
+      // 主页
+      home: ctx.urlFor('.home'),
+      // 移动端首页
+      mobileHome: ctx.urlFor('mobile.home'),
+      // 管理后台首页
+      adminHome: ctx.urlFor('admin.home')
+    }
   }
 
   @Get('/api/users')
