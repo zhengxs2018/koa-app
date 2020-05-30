@@ -1,0 +1,45 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "grunt.autoDetect": "off",
+  "gulp.autoDetect": "off",
+  "jake.autoDetect": "off",
+  "search.followSymlinks": false,
+  "search.exclude": {
+    "node_modules": true,
+    ".history": true,
+    "dist": true,
+    "coverage": true
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1500,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    ".history": true,
+    "node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    ".history": true,
+    "node_modules": true,
+    "dist": true,
+    "coverage": true
+  },
+  "cSpell.words": [
+    "devtools",
+    "tsnd",
+    "tsyringe"
+  ],
+  "cSpell.ignoreWords": [
+    "tslib"
+  ],
+  "cSpell.ignorePaths": [
+    "**/node_modules/**",
+    ".vscode",
+    ".history",
+    "coverage",
+    "dist"
+  ]
+}

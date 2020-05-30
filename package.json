@@ -1,0 +1,76 @@
+{
+  "name": "koa-blog",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "node -r ./dist/setup.js dist/main.js",
+    "dev": "tsnd -r ./src/setup.ts src/main.ts",
+    "debug": "tsnd --inspect -r ./src/setup.js src/main.ts",
+    "debug:prod": "node --inspect -r ./dist/setup.js dist/main.js",
+    "lint": "prettier src/**/*.ts *.json --write",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:save": "prisma migrate save --name koa-blog --experimental",
+    "prisma:migrate:up": "prisma migrate up --experimental"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "@prisma/client": "^2.0.0-beta.7",
+    "config": "^3.3.1",
+    "dotenv": "^8.2.0",
+    "ioredis": "^4.17.2",
+    "koa": "^2.12.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^5.2.0",
+    "koa-mount": "^4.0.0",
+    "koa-redis": "^4.0.1",
+    "koa-session": "^6.0.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.15",
+    "mkdirp": "^1.0.4",
+    "parameter": "^3.6.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.0.0",
+    "tsyringe": "^4.3.0"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.0.0-beta.7",
+    "@types/config": "^0.0.36",
+    "@types/dotenv": "^8.2.0",
+    "@types/ioredis": "^4.16.3",
+    "@types/koa": "^2.11.3",
+    "@types/koa-mount": "^4.0.0",
+    "@types/koa-session": "^5.10.2",
+    "@types/koa-static": "^4.0.1",
+    "@types/koa__router": "^8.0.2",
+    "@types/lodash": "^4.14.153",
+    "@types/mkdirp": "^1.0.0",
+    "@types/node": "^13.11.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "sqlite": "^4.0.9",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": ">= 12.x",
+    "npm": ">= 6.x"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

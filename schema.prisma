@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./run/dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ========== 基础用户 =========
+
+model User {
+  id        Int      @id @default(autoincrement())
+
+  // 本地账号
+  username      String?         @unique
+  password      String?
+  verified      Boolean         @default(false)
+
+  // 绑定邮箱
+  email     String?             @unique
+  emailVerified Boolean         @default(false)
+
+  // 绑定手机号
+  mobilePhone     String?       @unique
+  mobilePhoneVerified Boolean   @default(false)
+
+  // 是否管理员
+  isAdmin   Boolean @default(false)
+
+  // 最近一次登录操作
+  latestLogiedWithIP      String?
+  latestLogiedInTime      DateTime?
+
+  // 个人资料
+  avator    String?
+  nickname  String?       @unique
+
+  // 创建时间
+  createdby  Int         @default(-1)
+  createdAt  DateTime    @default(now())
+
+  // 更新时间
+  updatedby  Int         @default(-1)
+  updatedAt  DateTime?   @updatedAt
+
+  // 删除时间
+  delete     Boolean     @default(false)
+  deletedby  Int         @default(-1)
+  deletedAt  DateTime?   @updatedAt
+}
